@@ -34,11 +34,11 @@ public class ShiroConfig {
 		ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
 		bean.setSecurityManager(manager);
 		// 配置登录的url
-		bean.setLoginUrl("/blogger/login");
+		bean.setLoginUrl("/login");
 		//bean.setSuccessUrl("/admin/main");
 		// 过滤链
 		LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-		filterChainDefinitionMap.put("/blogger/login", "anon"); // 表示可以匿名访问
+		filterChainDefinitionMap.put("/login", "anon"); // 表示可以匿名访问
 		filterChainDefinitionMap.put("/admin/**", "authc");// 管理员权限需要验证过滤
 
 		bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
@@ -62,7 +62,7 @@ public class ShiroConfig {
      */
     @Bean(name="securityManager")
     public SecurityManager securityManager(@Qualifier("myRealm") MyRealm myRealm) {
-        System.err.println("加载shiro");
+        System.out.println("加载shiro");
         DefaultWebSecurityManager manager=new DefaultWebSecurityManager();
         manager.setRealm(myRealm);
         return manager;
