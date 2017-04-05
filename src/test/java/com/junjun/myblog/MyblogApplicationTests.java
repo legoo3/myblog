@@ -17,7 +17,7 @@ public class MyblogApplicationTests {
 
 	@Autowired
 	@Qualifier("bloggerService")
-	BloggerService bloggerService;
+	private BloggerService bloggerService;
 
 	@Test
 	public void testSelectByUsername() {

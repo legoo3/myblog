@@ -11,7 +11,7 @@ import com.junjun.myblog.service.BloggerService;
 public class BloggerServiceImpl implements BloggerService {
 	
 	@Autowired
-	BloggerDao bloggerDao;
+	private BloggerDao bloggerDao;
 	
 	@Override
 	public Blogger findByUsername(String username) {
