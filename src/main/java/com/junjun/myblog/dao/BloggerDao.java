@@ -8,12 +8,13 @@ import com.junjun.myblog.domain.Blogger;
  *
  */
 public interface BloggerDao {
-	
+		
 	/**
 	 * 根据用户名查询
 	 * @param username
 	 * @return
 	 */
 	Blogger selectByUsername(String username);
+	
 
 }

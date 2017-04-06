@@ -9,7 +9,7 @@
 				<h3>
 					<em><small><span class="marker"><strong>俞志君的博客</strong></span></small></em>
 				</h3>
-			</div>
+			</div>						
 		</div>
 		
 		<div class="row" style="padding-top: 10px">
@@ -52,10 +52,10 @@
 						</div>
 						<ul class="list-unstyled">
 							<li>
-								姓名:<span >测试用户名</span><!-- th:text="${blogger.username}" -->
+								姓名:<span th:text="${blogger.username}">测试用户名</span><!--  -->
 							</li>
 							<li>
-								邮箱:<span >测试邮箱</span><!-- th:text="${blogger.email}" -->
+								邮箱:<span th:text="${blogger.email}">测试邮箱</span><!--  -->
 							</li>
 
 						</ul>
@@ -66,9 +66,9 @@
 						<p>
 							<span><strong>文章分类</strong></span>
 						</p>
-						<ul class="list-unstyled" ><!-- th:each="blogType:${blogTypes}" -->
+						<ul class="list-unstyled" th:each="blogType:${blogTypeList}" ><!-- th:each="blogType:${blogTypes}" -->
 							<li>
-								<span><a href="#" >测试类型 (测试篇数)</a></span><!-- th:text="${blogType.typeName}" -->
+								<span><a href="#" th:text="${blogType.typeName}+' ('+${blogType.blogTypeCount}+')'" >测试类型 (测试篇数)</a></span><!-- th:text="${blogType.typeName}" -->
 							</li>
 						</ul>
 					</div>
@@ -76,38 +76,65 @@
 				<div class="row">
 					<div class="col-md-12">
 						<p>
-							<span><strong>文章存档</strong></span>
+							<span><strong>文章归档</strong></span>
 						</p>
-						<ul class="list-unstyled" ><!-- th:each="blog:${blogs}" -->
+						<ul class="list-unstyled" th:each="blogArchive:${blogArchiveList}" ><!--  -->
 							<li>
-								<span><a href="#" >测试时间 (测试篇数)</a></span><!-- th:text="${blog.releaseDate}" -->
+								<span><a href="#" th:text="${blogArchive.releaseDateStr}+' ('+${blogArchive.blogReleaseCount}+')'">测试时间 (测试篇数)</a></span><!-- th:text="${blog.releaseDate}" -->
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
+			
 			<div class="col-md-9">
+				
 				<div class="page-header">
 					<h3>
 						<em><span class="marker">最近博客</span></em>
 					</h3>
 				</div>
-				<div class="row">
+				
+				<div class="row" th:each="blogArticle:${blogArticleList}">
 					<div class="col-md-12">
 						<h2>
-							<a href="#">
-								SpringBoot Mybatis Web开发与学习(五)
+							<a href="#" th:text="${blogArticle.title}">
+								测试标题
 							</a>
 						</h2>
-						<p>
-							本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.
+						<p th:text="${blogArticle.summary}">
+							测试文章摘要
 						</p>
 						<p>
 							<a class="btn" href="#">查看全文 »</a>
 						</p>
+						<hr/>
 					</div>
 				</div>
+				
 				<div class="row">
+					<div class="col-md-12" style="text-align: center;">
+						<ul class="pagination pagination-centered">
+							<li><a href="#">&laquo;</a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">&raquo;</a></li>
+						</ul>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+
+<!-- 				<div class="row">
 					<div class="col-md-12">
 						<h2>
 							<a href="#">
@@ -170,29 +197,7 @@
 							<a class="btn" href="#">查看更多 »</a>
 						</p>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12" style="text-align: center;">
-						<ul class="pagination pagination-centered">
-							<li><a href="#">&laquo;</a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">&raquo;</a></li>
-						</ul>
-						
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-
-</body>
+				</div> -->
 
 
 

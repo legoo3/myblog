@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.junjun.myblog.dao.BlogDao">
+	<resultMap id="BlogResult" type="Blog">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="summary" column="summary" />
+		<result property="content" column="content" />
+		<result property="releaseDate" column="release_date" />
+		<result property="clickHit" column="click_hit" />
+		<result property="replyHit" column="reply_hit" />
+		<result property="keyword" column="keyword" />
+		<result property="blogReleaseCount" column="blogReleaseCount" />
+		<result property="releaseDateStr" column="releaseDateStr" />
+
+		<!-- <association property="blogType" column="type_id" select="com.junjun.myblog.BlogTypeDao.getBlogTypeData"> 
+			</association> 有问题，select语句的路径，有待修改 -->
+	</resultMap>
+
+	<select id="getBlogArchive" resultMap="BlogResult">
+		select
+		date_format(release_date,'%Y年%m月') as releaseDateStr,
+		count(*) as
+		blogReleaseCount
+		from t_blog
+		group by date_format(release_date,'%Y年%m月')
+		order by release_date desc
+	</select>
+
+	<select id="getBlogArticle" resultMap="BlogResult">
+		select *
+		from
+		t_blog
+		order by
+		id desc
+	</select>
+
+
+
+</mapper>
