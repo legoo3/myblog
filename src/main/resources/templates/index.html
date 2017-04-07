@@ -115,13 +115,19 @@
 				<div class="row">
 					<div class="col-md-12" style="text-align: center;">
 						<ul class="pagination pagination-centered">
-							<li><a href="#">&laquo;</a></li>
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">&raquo;</a></li>
+							
+							<li><a th:text="${pageBlog.prePage}==0?${pageBlog.firstPage}:${pageBlog.prePage}">xx</a></li>
+							<li><a href="#" th:href="@{/index( pageNum=${pageBlog.prePage}==0?${pageBlog.firstPage}:${pageBlog.prePage})}">上一页</a></li>
+							
+							<li><a href="#" th:href="@{/index(pageNum=${pageBlog.nextPage}==0?${pageBlog.lastPage}:${pageBlog.nextPage})}">下一页</a></li>
+							<li><a th:text="${pageBlog.nextPage}==0?${pageBlog.lastPage}:${pageBlog.nextPage}">xx</a></li>
+							
+							<li><a href="#" th:onclick="'toPage(\''+${pageBlog.firstPage}+'\',\''+${pageBlog.lastPage}+'\');'">跳转至</a></li>
+							<li><a><input type="text" id="pageNum" value="1" style="width:20px;height:20px;" /></a></li>
+							
+							<li><a>总页数</a></li>
+							<li><a th:text="${pageBlog.lastPage}">xx</a></li>
+
 						</ul>
 					</div>
 				</div>
@@ -131,74 +137,8 @@
 
 	</div>
 
+<script th:src="@{/js/index.js}" type="text/javascript"></script>
 
 </body>
-
-<!-- 				<div class="row">
-					<div class="col-md-12">
-						<h2>
-							<a href="#">
-								SpringBoot Mybatis Web开发与学习(四)
-							</a>
-						</h2>
-						<p>
-							本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.
-						</p>
-
-						<p>
-							<a class="btn" href="#">查看更多 »</a>
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h2>
-							<a href="#">
-								SpringBoot Mybatis Web开发与学习(三)
-							</a>
-						</h2>
-						<p>
-							本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.
-						</p>
-
-						<p>
-							<a class="btn" href="#">查看更多 »</a>
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h2>
-							<a href="#">
-								SpringBoot Mybatis Web开发与学习(二)
-							</a>
-						</h2>
-						<p>
-							本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.
-						</p>
-
-						<p>
-							<a class="btn" href="#">查看更多 »</a>
-						</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h2>
-							<a href="#">
-								SpringBoot Mybatis Web开发与学习(一)
-							</a>
-						</h2>
-						<p>
-							本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.
-						</p>
-
-						<p>
-							<a class="btn" href="#">查看更多 »</a>
-						</p>
-					</div>
-				</div> -->
-
-
 
 </html>
