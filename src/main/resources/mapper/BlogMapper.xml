@@ -13,8 +13,9 @@
 		<result property="blogReleaseCount" column="blogReleaseCount" />
 		<result property="releaseDateStr" column="releaseDateStr" />
 
-		<!-- <association property="blogType" column="type_id" select="com.junjun.myblog.BlogTypeDao.getBlogTypeData"> 
-			</association> 有问题，select语句的路径，有待修改 -->
+<association property="blogType" column="type_id"
+			select="com.junjun.myblog.dao.BlogTypeDao.getBlogTypeById">
+		</association> 
 	</resultMap>
 
 	<select id="getBlogArchive" resultMap="BlogResult">
@@ -34,7 +35,5 @@
 		order by
 		id desc
 	</select>
-
-
 
 </mapper>

@@ -17,6 +17,8 @@ public interface BlogDao {
 	 */
 	List<Blog> getBlogArchive();
 	
+	Blog getBlogTypeById(Integer id);
+	
 	
 	/**
 	 * 获取博客文章主题
