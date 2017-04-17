@@ -21,9 +21,31 @@ public interface BlogDao {
 	
 	
 	/**
-	 * 获取博客文章主题
+	 * 获取博客文章主体
 	 * @return
 	 */
 	List<Blog> getBlogArticle();
-
+	
+	/**
+	 * 按查询参数查询博客
+	 * @param queryParam
+	 * @return
+	 */
+	List<Blog> searchBlog(String searchParam);
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

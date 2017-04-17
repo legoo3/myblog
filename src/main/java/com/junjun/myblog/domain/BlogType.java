@@ -1,5 +1,7 @@
 package com.junjun.myblog.domain;
 
+import java.util.List;
+
 /**
  * 博客类型
  * 
@@ -14,6 +16,9 @@ public class BlogType {
 
 	//数据库中没有的字段
 	private Integer blogTypeCount;// 每个类型所拥有的博客数量
+	
+	private List<Blog> blogs;//一个博客类型可对应多篇博客
+	
 
 	public Integer getId() {
 		return id;
@@ -45,6 +50,16 @@ public class BlogType {
 
 	public void setBlogTypeCount(Integer blogTypeCount) {
 		this.blogTypeCount = blogTypeCount;
+	}
+	
+	
+
+	public List<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(List<Blog> blogs) {
+		this.blogs = blogs;
 	}
 
 	@Override

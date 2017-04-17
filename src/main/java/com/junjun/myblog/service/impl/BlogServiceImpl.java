@@ -25,4 +25,9 @@ public class BlogServiceImpl implements BlogService {
 		return blogDao.getBlogArticle();
 	}
 
+	@Override
+	public List<Blog> searchBlog(String searchParam) {
+		return blogDao.searchBlog(searchParam);
+	}
+
 }

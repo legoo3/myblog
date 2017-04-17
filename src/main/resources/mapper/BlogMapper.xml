@@ -12,12 +12,12 @@
 		<result property="keyword" column="keyword" />
 		<result property="blogReleaseCount" column="blogReleaseCount" />
 		<result property="releaseDateStr" column="releaseDateStr" />
+		<result property="releaseDateBlog" column="releaseDateBlog" />
+		<result property="blogTypeName" column="type_name" />
 
-<association property="blogType" column="type_id"
-			select="com.junjun.myblog.dao.BlogTypeDao.getBlogTypeById">
-		</association> 
 	</resultMap>
 
+	<!-- 获取文章归档信息，年月(篇数) -->
 	<select id="getBlogArchive" resultMap="BlogResult">
 		select
 		date_format(release_date,'%Y年%m月') as releaseDateStr,
@@ -28,12 +28,44 @@
 		order by release_date desc
 	</select>
 
+	<!-- 获取博客文章主体 ，主要的显示文章内容 -->
 	<select id="getBlogArticle" resultMap="BlogResult">
-		select *
+		select t1.*,t2.type_name,date_format(t1.release_date,'%Y-%m-%d %h:%i') as releaseDateBlog
 		from
-		t_blog
+		t_blog t1,t_blogtype t2
+		where t1.type_id = t2.id
 		order by
-		id desc
+		t1.id desc
 	</select>
 
+	<!-- 根据查询参数，查询文章 -->
+	<select id="searchBlog" resultMap="BlogResult" parameterType="string">
+		select t1.*,t2.type_name,date_format(t1.release_date,'%Y-%m-%d %h:%i') as releaseDateBlog
+		from
+		t_blog t1,t_blogtype t2
+		where t1.type_id =
+		t2.id
+		and (t1.title like
+		concat('%',#{searchParam},'%') or
+		t1.summary
+		like concat('%',#{searchParam},'%'))
+		order by
+		t1.release_date desc
+	</select>
+
+
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

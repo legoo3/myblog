@@ -14,10 +14,17 @@ public interface BlogService {
 	
 	
 	/**
-	 * 获取博客文章主题
+	 * 获取博客文章主体
 	 * @return
 	 */
 	List<Blog> getBlogArticle();
+	
+	/**
+	 * 根据查询参数查询文章
+	 * @param searchParam
+	 * @return
+	 */
+	List<Blog> searchBlog(String searchParam);
 	
 	
 

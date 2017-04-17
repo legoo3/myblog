@@ -30,25 +30,47 @@ public class MyblogApplicationTests {
 	private BlogService blogService;
 	
 
+	
+
+	/**
+	 * 博主登录
+	 */
 	@Test
 	public void testSelectByUsername() {
 		System.out.println(bloggerService.findByUsername("yuzhijun"));
 	}
 	
+	/**
+	 * 获取博客类型资料
+	 */
 	@Test
 	public void testGetBlogTypeData(){
 		System.out.println(blogTypeService.getBlogTypeData());
 	}
 	
+	/**
+	 * 获取博客归档信息
+	 */
 	@Test
 	public void testGetBlogArchive(){
 		System.out.println(blogService.getBlogArchive());
 	}
 	
+	/**
+	 * 获取博客主体
+	 */
 	@Test
 	public void testGetBlogArticle(){
 		System.out.println(blogService.getBlogArticle());
 	}
 	
-
+	/**
+	 * 查询博客
+	 */
+	@Test
+	public void testSearchBlog(){
+		System.out.println(blogService.searchBlog("学习与开发"));
+	}
+	
+	
 }

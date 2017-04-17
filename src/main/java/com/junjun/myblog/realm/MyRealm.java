@@ -32,9 +32,9 @@ public class MyRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		String username = (String) token.getPrincipal();// 根据刚刚传过来的token获取用户名
-		Blogger blogger = bloggerService.findByUsername(username);//只是根据用户名查询出，不涉及密码
+		Blogger blogger = bloggerService.findByUsername(username);// 只是根据用户名查询出，不涉及密码
 		if (blogger != null) {
-			System.out.println("验证信息:"+ blogger);
+			System.out.println("验证信息:" + blogger);
 			// 把获取到的用户存到session中
 			SecurityUtils.getSubject().getSession().setAttribute("blogger", blogger);
 			// 把从数据库中查询出来的博主信息放到AuthenticationInfo中,即把正确的用户名，密码，交给shiro,再和前台输入的校验。

@@ -44,7 +44,7 @@ public class ShiroConfig {
 		bean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 		return bean;
 	}
-
+	
     /**
      * 注册自定义的Realm
      * @return
