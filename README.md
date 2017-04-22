@@ -1,2 +1,8 @@
-# myblog
-a blog project
+#springboot mybatis个人博客系统
+一个简单的博客系统已经搭建完成了，这里只是完成了读博客功能，即博客文章的内容全部从数据库中写入，并不是从网页写入。其实从网页写入也没有多少的逻辑业务处理，只是要完成界面比较好的编辑，写入到数据库中。
+##1、druid数据源监控
+![](http://i.imgur.com/zPvXFhH.png)
+##2、首页
+![](http://i.imgur.com/puVWova.png)
+这里的首页分了这几个模块，个人资料，文章分类，文章归档，博客文章主体，搜索，分页。
+欢迎大家访问此项目的开发博客[http://blog.csdn.net/jj1273365548](http://blog.csdn.net/jj1273365548)，一步一步说的都很清楚。
