@@ -5,7 +5,7 @@ import java.util.List;
 import com.junjun.myblog.domain.Blog;
 
 /**
- * BlopDao
+ * BlogDao
  * @author jun
  *
  */
